@@ -4,3 +4,4 @@ phasedVcf:
 sampleSheet: /data/manke/sikora/oarfish_miniworkshop/oarfish_test_data/sampleSheet.tsv
 organism: hg38
 correctRTA: False
+num_bootstraps: 50

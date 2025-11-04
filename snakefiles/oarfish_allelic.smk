@@ -8,11 +8,12 @@ rule oarfish_quant_allelic:
         quant = "oarfish_output/{sample}_{allele}.quant"
     params:
         prefix = "oarfish_output/{sample}_{allele}",
-        woutdir = "oarfish_output"
+        woutdir = "oarfish_output",
+        numBootstraps = config["num_bootstraps"]
     envmodules: "oarfish/0.9.0"
     threads: 16
     shell: """
-          oarfish -j {threads} --reads {input.reads} --index {input.index} --seq-tech ont-cdna -o {params.prefix} --num-bootstraps 30 --filter-group no-filters --model-coverage
+          oarfish -j {threads} --reads {input.reads} --index {input.index} --seq-tech ont-cdna -o {params.prefix} --num-bootstraps {params.numBootstraps} --filter-group no-filters --model-coverage
           """ 
 
 
