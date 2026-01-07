@@ -1,5 +1,6 @@
 cores: 4
 use-envmodules: True
+use-conda: True
 printshellcmds: True
 default-resources:
   mem: 1G
