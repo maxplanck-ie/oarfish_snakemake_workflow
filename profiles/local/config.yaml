@@ -1,0 +1,26 @@
+cores: 4
+use-envmodules: True
+printshellcmds: True
+default-resources:
+  mem: 1G
+  time: 300
+  partition: bioinfo
+set-resources:
+  index_fasta:
+    mem: 10G
+  oarfish_quant:
+    mem: 10G
+  oarfish_quant_allelic:
+    mem: 10G
+  edgeR_transcript:
+    mem: 20G
+  edgeR_gene:
+    mem: 20G
+  edgeR_transcript_allele:
+    mem: 20G
+  edgeR_transcript_allele_condition:
+    mem: 20G
+  edgeR_gene_allele:
+    mem: 20G
+  edgeR_gene_allele_condition:
+    mem: 20G

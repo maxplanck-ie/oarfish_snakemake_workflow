@@ -1,0 +1,39 @@
+executor: cluster-generic
+cluster-generic-submit-cmd:
+  "mkdir -p logs/{rule};\
+  module load slurm && sbatch \
+    --partition={resources.partition} \
+    --cpus-per-task={threads} \
+    --mem-per-cpu={resources.mem} \
+    --job-name=oarfish_{rule}-{wildcards} \
+    --output=logs/{rule}/{rule}-{wildcards}-%j-%N.out \
+    --time={resources.time} \
+    --parsable"
+jobs: 20
+use-envmodules: True
+cluster-generic-cancel-cmd: "ccancel.sh"
+latency-wait: 300
+printshellcmds: True
+default-resources:
+  mem: 1G
+  time: 1440
+  partition: bioinfo
+set-resources:
+  index_fasta:
+    mem: 10G
+  oarfish_quant:
+    mem: 10G
+  oarfish_quant_allelic:
+    mem: 10G
+  edgeR_transcript:
+    mem: 20G
+  edgeR_gene:
+    mem: 20G
+  edgeR_transcript_allele:
+    mem: 20G
+  edgeR_transcript_allele_condition:
+    mem: 20G
+  edgeR_gene_allele:
+    mem: 20G
+  edgeR_gene_allele_condition:
+    mem: 20G
