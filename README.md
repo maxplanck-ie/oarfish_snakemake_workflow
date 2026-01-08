@@ -7,15 +7,13 @@ To create the conda environment for running the workflow, run:
 conda env create -f env.yaml
 ```
 
-To run the workflow, run:
+To run the workflow with cluster support, run:
 ```
 conda activate oarfish_snakemake_env
-snakemake -j 1 --use-envmodules --use-conda
-
+snakemake --profile profiles/cluster
 ```
 
-The workflow is currently configured to run locally.
-
+Else, to run the workflow locally: ```snakemake --profile profiles/local``` .
 
 
 Citations:
